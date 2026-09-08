@@ -1,2 +1,12 @@
 <h3>Materiais (Engenharia)</h3>
-<button>Obter todos</button>
+<button (click)="obterTodosMateriais()">Obter todos</button>
+
+<ul>
+    @for (material of materiais(); track material.id) {
+        <li>
+            <strong>{{ material.nome }}</strong> - {{ material.marca || 'Sem marca' }}
+        </li>
+    } @empty {
+        <p>Nenhum material carregado.</p>
+    }
+</ul>

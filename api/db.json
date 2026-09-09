@@ -1,0 +1,34 @@
+{
+  "materiais": [
+    {
+      "id": 1,
+      "marca": "Votorantim",
+      "nome": "Cimento CP II"
+    },
+    {
+      "id": 2,
+      "marca": "Gerdau",
+      "nome": "Vergalhão de Aço CA-50"
+    },
+    {
+      "id": 3,
+      "marca": "Tigre",
+      "nome": "Tubo de PVC 50mm"
+    },
+    {
+      "id": 4,
+      "marca": "Suvinil",
+      "nome": "Tinta Acrílica Fosca"
+    },
+    {
+      "id": 5,
+      "marca": "",
+      "nome": "Tijolo Cerâmico 8 Furos"
+    },
+    {
+      "id": 6,
+      "marca": "Vedacit",
+      "nome": "Impermeabilizante Asfáltico"
+    }
+  ]
+}

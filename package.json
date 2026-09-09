@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "api": "json-server --watch api/db.json",
     "serve:ssr:ReqApi": "node dist/ReqApi/server/server.mjs"
   },
   "private": true,

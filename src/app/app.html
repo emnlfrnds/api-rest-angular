@@ -1,4 +1,5 @@
 <h3>Materiais (Engenharia)</h3>
+
 <button (click)="obterTodosMateriais()">Obter todos</button>
 
 <ul>
@@ -10,3 +11,15 @@
         <p>Nenhum material carregado.</p>
     }
 </ul>
+
+<button (click)="obterSomenteUm(3)">Obter somente o material #3</button>
+
+@if (materialSelecionado(); as mat) {
+    <div>
+        <h4>
+            <p>ID: {{ mat.id }}</p>
+            <p>Nome: {{ mat.nome }}</p>
+            <p>Marca: {{ mat.marca }} || 'Sem marca' </p>
+        </h4>
+    </div>
+}

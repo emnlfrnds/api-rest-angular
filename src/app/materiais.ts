@@ -17,4 +17,8 @@ export class Materiais {
     {
         return this.httpClient.get<IMaterial[]>(`${API_PATH}materiais`)
     }
+
+    obterPorId(id: number) : Observable<IMaterial> {
+        return this.httpClient.get<IMaterial>(`${API_PATH}materiais/${id}`)
+    }
 }

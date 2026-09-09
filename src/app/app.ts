@@ -13,8 +13,8 @@ export class App {
   private materiaisService = inject(Materiais);
 
   protected readonly title = signal('ReqApi');
+  
   materiais = signal<IMaterial[]>([]);
-
   obterTodosMateriais(): void {
     this.materiaisService.obterTodos().subscribe({
       next: (dados) => {
@@ -23,6 +23,19 @@ export class App {
       },
       error: (erro) => {
         console.error('Erro ao buscar materiais:', erro);
+      }
+    })
+  }
+
+  materialSelecionado = signal<IMaterial | null>(null)
+  obterSomenteUm(id: number): void {
+    this.materiaisService.obterPorId(id).subscribe({
+      next: (dado) => {
+        this.materialSelecionado.set(dado);
+        console.log(dado);
+      },
+      error: (erro) => {
+        console.error('Erro ao buscar material:', erro);
       }
     })
   }

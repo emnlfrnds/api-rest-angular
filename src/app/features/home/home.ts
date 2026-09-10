@@ -14,8 +14,8 @@ export class Home {
   materiais = signal<IMaterial[]>([]);
   materialSelecionado = signal<IMaterial | null>(null);
   
-  obterTodosMateriais(): void {
-    this.materiaisService.obterTodos().subscribe({
+  getMateriais(): void {
+    this.materiaisService.getMat().subscribe({
       next: (dados) => {
         this.materiais.set(dados);
         console.log(dados);
@@ -26,10 +26,10 @@ export class Home {
     });
   }
 
-  obterSomenteUm(id: number): void {
+  getPorIdMateriais(id: number): void {
     if (!id) return;
 
-    this.materiaisService.obterPorId(id).subscribe({
+    this.materiaisService.getPorIdMat(id).subscribe({
       next: (dado) => {
         this.materialSelecionado.set(dado);
         console.log(dado);
@@ -41,7 +41,7 @@ export class Home {
     });
   }
 
-  adicionarMat(nome: string, marca: string): void {
+  postMateriais(nome: string, marca: string): void {
     if (!nome.trim()) return;
 
     const listaAtual = this.materiais();
@@ -56,7 +56,7 @@ export class Home {
       marca
     };
 
-    this.materiaisService.addMat(novoMaterial).subscribe({
+    this.materiaisService.postMat(novoMaterial).subscribe({
       next: (dado) => {
         this.materiais.update(lista => [...lista, dado]);
         console.log('Adicionado:', dado);

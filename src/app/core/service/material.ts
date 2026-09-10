@@ -13,16 +13,16 @@ export class MaterialService {
     
     constructor(private httpClient: HttpClient) {}
 
-    obterTodos() : Observable<IMaterial[]>
+    getMat() : Observable<IMaterial[]>
     {
         return this.httpClient.get<IMaterial[]>(`${API_PATH}materiais`);
     }
 
-    obterPorId(id: number) : Observable<IMaterial> {
+    getPorIdMat(id: number) : Observable<IMaterial> {
         return this.httpClient.get<IMaterial>(`${API_PATH}materiais/${id}`);
     }
 
-    addMat(material: IMaterial) : Observable<IMaterial> {
+    postMat(material: IMaterial) : Observable<IMaterial> {
         return this.httpClient.post<IMaterial>(`${API_PATH}materiais`, material);
     }
 }

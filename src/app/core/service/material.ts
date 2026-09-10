@@ -25,4 +25,12 @@ export class MaterialService {
     postMat(material: IMaterial) : Observable<IMaterial> {
         return this.httpClient.post<IMaterial>(`${API_PATH}materiais`, material);
     }
+
+    putMat(material: IMaterial) : Observable<IMaterial> {
+        return this.httpClient.put<IMaterial>(`${API_PATH}materiais/${material.id}`, material);
+    }
+
+    deleteMat(id: number) : Observable<unknown> {
+        return this.httpClient.delete(`${API_PATH}materiais/${id}`);
+    }
 }

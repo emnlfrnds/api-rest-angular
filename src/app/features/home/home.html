@@ -21,8 +21,8 @@
   <div class="section">
     <h3>Buscar por ID</h3>
     <div class="field-group">
-      <input #inputId type="number" placeholder="Digite o ID (ex: 3)" />
-      <button (click)="getPorIdMateriais(inputId.valueAsNumber)">Buscar</button>
+      <input #buscarId type="number" placeholder="Digite o ID (ex: 3)" />
+      <button (click)="getPorIdMaterial(buscarId.valueAsNumber)">Buscar</button>
     </div>
 
     @if (materialSelecionado(); as mat) {
@@ -40,18 +40,48 @@
   <div class="section">
     <h3>Cadastrar Novo Material</h3>
     <div class="field-group">
-      <input #inputNome type="text" placeholder="Nome do material (ex: Cimento)" />
-      <input #inputMarca type="text" placeholder="Nome da marca (ex: Votorantim)" />
+      <input #postNome type="text" placeholder="Nome do material (ex: Cimento)" />
+      <input #postMarca type="text" placeholder="Nome da marca (ex: Votorantim)" />
 
       <button
         (click)="
-          postMateriais(inputNome.value, inputMarca.value);
-          inputNome.value = '';
-          inputMarca.value = ''
+          postMaterial(postNome.value, postMarca.value); postNome.value = ''; postMarca.value = ''
         "
       >
-        Adicionar Produto
+        Adicionar
       </button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="section">
+    <h3>Atualizar Material:</h3>
+    <div class="field-group">
+      <input #editId type="number" placeholder="Informe o ID (ex: 5)" />
+      <input #editNome type="text" placeholder="Informe o NOVO nome" />
+      <input #editMarca type="text" placeholder="Informe a NOVA marca" />
+
+      <button
+        (click)="
+          putMaterial(editId.valueAsNumber, editNome.value, editMarca.value);
+          editId.valueAsNumber = 0;
+          editNome.value = '';
+          editMarca.value = ''
+        "
+      >
+        Atualizar
+      </button>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="section">
+    <h3>Deletar Material:</h3>
+    <div class="field-group">
+      <input #delId type="number" placeholder="Informe o ID (ex: 1)" />
+      <button (click)="deleteMaterial(delId.valueAsNumber)">Deletar</button>
     </div>
   </div>
 </div>

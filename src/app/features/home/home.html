@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Materiais (Engenharia)</h2>
+
+  <section class="section">
+    <button (click)="obterTodosMateriais()">Obter Todos</button>
+
+    <ul>
+      @for (material of materiais(); track material.id) {
+        <li>
+          <strong>{{ material.id }}</strong> {{ material.nome }}
+          <span>({{ material.marca || 'Sem marca' }})</span>
+        </li>
+      } @empty {
+        <p class="empty-msg">Nenhum material carregado.</p>
+      }
+    </ul>
+  </section>
+
+  <hr />
+
+  <div class="section">
+    <h3>Buscar por ID</h3>
+    <div class="field-group">
+      <input #inputId type="number" placeholder="Digite o ID (ex: 3)" />
+      <button (click)="obterSomenteUm(inputId.valueAsNumber)">Buscar</button>
+    </div>
+
+    @if (materialSelecionado(); as mat) {
+      <div class="result-card">
+        <h4>Detalhes do Material:</h4>
+        <p><strong>ID:</strong> {{ mat.id }}</p>
+        <p><strong>Nome:</strong> {{ mat.nome }}</p>
+        <p><strong>Marca:</strong> {{ mat.marca || 'Sem marca' }}</p>
+      </div>
+    }
+  </div>
+
+  <hr />
+
+  <div class="section">
+    <h3>Cadastrar Novo Material</h3>
+    <div class="field-group">
+      <input #inputNome type="text" placeholder="Nome do material (ex: Cimento)" />
+      <input #inputMarca type="text" placeholder="Nome da marca (ex: Votorantim)" />
+
+      <button
+        (click)="
+          adicionarMat(inputNome.value, inputMarca.value);
+          inputNome.value = '';
+          inputMarca.value = ''
+        "
+      >
+        Adicionar Produto
+      </button>
+    </div>
+  </div>
+</div>

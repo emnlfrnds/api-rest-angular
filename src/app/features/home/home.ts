@@ -65,6 +65,7 @@ export class Home {
       next: (dado) => {
         this.materiais.update(lista => [...lista, dado]);
         console.log('Material Adicionado:', dado);
+        alert(`ID do material: ${dado.id}`);
       },
       error: (erro) => {
         console.error('Erro ao adicionar material:', erro);

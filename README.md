@@ -1,32 +1,54 @@
-# Consumo de API REST com Angular 🚀
+# 🛠️ Gerenciador de Materiais (Angular CRUD)
 
-Este repositório contém um projeto prático desenvolvido em Angular com o objetivo de aprender a integrar e consumir dados de uma **API REST** utilizando uma **Fake API**.
+> Aplicação web desenvolvida para consolidação prática de consumo de APIs REST no ecossistema Angular moderno, integrando reatividade via Signals e RxJS com uma Fake API local.
 
-## 🛠️ Tecnologias Utilizadas
+---
 
-* **Angular** (Framework principal)
-* **HttpClientModule** (para requisições HTTP)
-* **RxJS** (gerenciamento de dados assíncronos e Observables)
-* **JSON Server / Fake API** (simulação do servidor backend)
-* **TypeScript**, **HTML5** e **CSS3**
+## 💻 Tecnologias & Conceitos Utilizados
 
-## 🎯 Objetivos de Aprendizado
+* **Angular** (Standalone Architecture & Control Flow `@for` / `@if`)
+* **Angular Signals** (Gerenciamento de estado reativo)
+* **RxJS** (Requisições assíncronas com `HttpClient` e `Observable`)
+* **TypeScript** (Tipagem estrita com Interfaces)
+* **JSON Server v0.17.4** (Simulação de backend RESTful com IDs numéricos)
+* **SCSS** (Estilização customizada)
 
-* Configurar o `HttpClientModule` no Angular.
-* Criar *Services* para isolar as chamadas de API.
-* Realizar operações HTTP (`GET`, `POST`, `PUT`, `DELETE`).
-* Manipular `Observables` com a biblioteca RxJS.
-* Renderizar dados dinâmicos em componentes usando diretivas (`*ngFor`, `*ngIf`).
+---
+
+## 📌 Funcionalidades (CRUD Completo)
+
+- [x] **Listar Todos:** Busca e exibe todos os materiais cadastrados (`GET /materiais`).
+- [x] **Buscar por ID:** Filtra e exibe os detalhes de um item específico com tratamento de erro 404 (`GET /materiais/:id`).
+- [x] **Cadastrar:** Adiciona novos produtos com geração automática de ID no servidor (`POST /materiais`).
+- [x] **Atualizar:** Modifica dados de materiais existentes e atualiza a interface dinamicamente (`PUT /materiais/:id`).
+- [x] **Excluir:** Remove registros do banco de dados fake e reflete na lista local (`DELETE /materiais/:id`).
+
+---
 
 ## 🚀 Como Executar o Projeto
 
-### Pré-requisitos
-* **Node.js** instalado na máquina.
-* **Angular CLI** instalado (`npm install -g @angular/cli`).
+### 1. Clonar o repositório e acessar a pasta
+```bash
+git clone https://github.com/emnlfrnds/api-rest-angular.git
+cd api-rest-angular
+```
 
-### Passo a Passo
+### 2. Instalar as dependências
+```bash
+npm install
+```
 
-1. **Clonar o repositório:**
-   ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
-   cd seu-repositorio
+### 3. Executar a aplicação
+Abra **2 terminais** simultaneamente na raiz do projeto e execute os comandos:
+
+* **Terminal 1 (Fake API):**
+  ```bash
+  npm run api
+  ```
+
+* **Terminal 2 (Aplicação Angular):**
+  ```bash
+  ng serve
+  ```
+
+> 💡 Após inicializar os serviços, acesse **[http://localhost:4200](http://localhost:4200)** no navegador.

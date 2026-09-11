@@ -38,9 +38,17 @@ cd api-rest-angular
 npm install
 ```
 
+> ⚠️ **Nota Importante de Compatibilidade:**
+> Este projeto foi desenvolvido utilizando o **`json-server` na versão `0.17.4`**, garantindo que os IDs dos registros sejam tratados como **numéricos (`number`)**. Versões mais recentes (v1.0+) tratam IDs obrigatoriamente como `string`, o que pode causar falhas nas requisições do Angular.
+
+> Por isso, caso precise reinstalar ou garantir a versão correta no projeto, use o comando abaixo para instalar a versão 17 do `json-server`:
+
+  ```bash
+  npm install -D json-server@0.17.4
+  ```
+
 ### 3. Executar a aplicação
 Abra **2 terminais** simultaneamente na raiz do projeto e execute os comandos:
-
 * **Terminal 1 (Fake API):**
   ```bash
   npm run api
